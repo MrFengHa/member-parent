@@ -17,6 +17,7 @@
         <module>member-pay-consumer</module>
         <module>member-zuul</module>
         <module>member-entity</module>
+        <module>member-api</module>
     </modules>
 
     <packaging>pom</packaging>
