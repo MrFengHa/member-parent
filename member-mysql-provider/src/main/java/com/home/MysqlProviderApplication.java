@@ -1,6 +1,7 @@
 package com.home;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
@@ -13,6 +14,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MysqlProviderApplication {
     public static void main(String[] args) {
-
+        SpringApplication.run(MysqlProviderApplication.class, args);
     }
 }

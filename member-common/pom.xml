@@ -9,23 +9,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>member-api</artifactId>
+    <artifactId>member-common</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.home</groupId>
-            <artifactId>member-entity</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
 
         <dependency>
-            <groupId>com.home</groupId>
-            <artifactId>member-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
         </dependency>
     </dependencies>
+
 </project>
