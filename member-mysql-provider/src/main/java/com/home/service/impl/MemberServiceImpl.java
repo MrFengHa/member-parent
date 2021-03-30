@@ -6,6 +6,7 @@ import com.home.mapper.MemberPOMapper;
 import com.home.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -46,6 +47,7 @@ public class MemberServiceImpl implements MemberService {
      *
      * @param memberPO
      */
+    @Transactional(propagation = Propagation.REQUIRES_NEW,rollbackFor = Exception.class)
     public void saveMember(MemberPO memberPO) {
         memberPOMapper.insert(memberPO);
     }
