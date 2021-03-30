@@ -16,4 +16,10 @@ public interface MemberService {
      * @return
      */
     MemberPO getMemberPOByLoginAcctRemote(String loginacct);
+
+    /**
+     * 保存Member
+     * @param memberPO
+     */
+    void saveMember(MemberPO memberPO);
 }

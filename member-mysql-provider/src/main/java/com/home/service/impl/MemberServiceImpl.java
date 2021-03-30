@@ -40,4 +40,13 @@ public class MemberServiceImpl implements MemberService {
         //获取我们的结果
         return memberPOS.get(0);
     }
+
+    /**
+     * 保存Member
+     *
+     * @param memberPO
+     */
+    public void saveMember(MemberPO memberPO) {
+        memberPOMapper.insert(memberPO);
+    }
 }

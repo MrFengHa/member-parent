@@ -3,6 +3,7 @@ package com.home.api;
 import com.home.entity.po.MemberPO;
 import com.home.util.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,5 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface MySqlRemoteService {
     @RequestMapping("get/memberpo/by/login/acct/remote")
     ResultEntity<MemberPO> getMemberPOByLoginAcctRemote(@RequestParam("loginacct") String loginacct);
+
+    @RequestMapping("/save/member/remote")
+    ResultEntity<String> saveMember(@RequestBody MemberPO memberPO);
 
 }
