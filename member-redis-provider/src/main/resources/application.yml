@@ -9,7 +9,7 @@ spring:
     host: 47.242.214.81
     port: 6379
     lettuce:
-      shutdown-timeout: 0
+      shutdown-timeout: 6000
 
 eureka:
   client:

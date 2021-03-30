@@ -40,19 +40,19 @@ public class MemberController {
                 shortMessageProperties.getSmsSignId(),
                 shortMessageProperties.getTemplateId());
         //2.判断短信发送的结果
-        if (ResultEntity.ok().equals(sendMessageResultEntity.getResult())) {
+        if (ResultEntity.SUCCESS.equals(sendMessageResultEntity.getResult())) {
             //3.如果发送成功，则将验证码存入redis
             //获取随机生成的验证码
-            String code = sendMessageResultEntity.getData();
+            String code =sendMessageResultEntity.getData();
 
             //拼接一个用于Redis存储的数据的Key
             String key = CrowdConstant.REDIS_CODE_PREFIX + phoneNum;
             System.out.println(CrowdConstant.REDIS_CODE_PREFIX + phoneNum);
             //调用远程接口存入Redis
-            ResultEntity<String> saveCodeResultEntity = redisRemoteService.setRedisKeyValueRemoteWithTimeout(key, code, 5L, TimeUnit.MINUTES);
+            ResultEntity<String> saveCodeResultEntity = redisRemoteService.setRedisKeyValueRemoteWithTimeout(key, code, 5, TimeUnit.MINUTES);
 
             //判断结果
-            if (ResultEntity.ok().equals(saveCodeResultEntity.getResult())) {
+            if (ResultEntity.SUCCESS.equals(saveCodeResultEntity.getResult())) {
                 return ResultEntity.ok();
             }else{
                 return saveCodeResultEntity;

@@ -41,7 +41,7 @@ public class RedisController {
     ResultEntity<String> setRedisKeyValueRemoteWithTimeout(
             @RequestParam("key") String key,
             @RequestParam("value") String value,
-            @RequestParam("time") Long time,
+            @RequestParam("time") long time,
             @RequestParam("timeUnit") TimeUnit timeUnit) {
 
 

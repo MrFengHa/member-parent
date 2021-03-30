@@ -47,11 +47,13 @@ public class CrowdUtil {
          */
         Map<String, String> querys = new HashMap<String, String>();
 
-        StringBuilder code = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < 6; i++) {
             int random = (int) (Math.random()*10);
-            code.append(random);
+            builder.append(random);
         }
+
+        String code = builder.toString();
         /**
          * 接收的手机号
          */
