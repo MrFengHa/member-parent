@@ -9,6 +9,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * 文件描述
  *
@@ -27,6 +29,13 @@ public class RedisTest {
     public void testSet() {
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
         operations.set("apple", "red");
+        log.info(operations.get("apple")); ;
+    }
+
+    @Test
+    public void testExSet() {
+        ValueOperations<String, String> operations = redisTemplate.opsForValue();
+        operations.set("banana", "yellow",5000, TimeUnit.MILLISECONDS);
         log.info(operations.get("apple")); ;
     }
 
