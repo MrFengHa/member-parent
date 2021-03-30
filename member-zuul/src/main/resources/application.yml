@@ -1,0 +1,17 @@
+server:
+  port: 80
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+zuul:
+  ignored-services: "*"
+  routes:
+    portal:
+      service-id: member-authentication-consumer
+      path: /**
+
+spring:
+  application:
+    name: zuul
