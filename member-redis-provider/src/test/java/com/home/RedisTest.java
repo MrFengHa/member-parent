@@ -27,7 +27,7 @@ public class RedisTest {
     public void testSet() {
         ValueOperations<String, String> operations = redisTemplate.opsForValue();
         operations.set("apple", "red");
-        log.debug(operations.get("apple")); ;
+        log.info(operations.get("apple")); ;
     }
 
 }
