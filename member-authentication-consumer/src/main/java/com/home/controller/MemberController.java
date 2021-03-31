@@ -40,6 +40,13 @@ public class MemberController {
     @Autowired
     private MySqlRemoteService mySqlRemoteService;
 
+    @RequestMapping("/auth/member/logout")
+    public String logout(HttpSession httpSession){
+
+        httpSession.invalidate();
+        return "redirect:/";
+    }
+
     @RequestMapping("/auth/member/do/login")
     public String login(@RequestParam("loginacct") String loginacct,
                         @RequestParam("userpswd") String userpswd,
