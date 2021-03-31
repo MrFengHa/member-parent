@@ -53,7 +53,7 @@ public class MemberController {
             return "member-reg";
         }
         String redisCode = resultEntity.getData();
-        if (redisCode != null) {
+        if (redisCode == null) {
             modelMap.addAttribute(CrowdConstant.ATTR_NAME_MESSAGE,CrowdConstant.MESSAGE_CODE_NOT_EXISTS);
             return "member-reg";
         }
@@ -85,8 +85,8 @@ public class MemberController {
             modelMap.addAttribute(CrowdConstant.ATTR_NAME_MESSAGE,saveMemberResultEntity.getMessage());
             return "member-reg";
         }
-
-        return "member-login";
+        //使用从定向避免刷新浏览器导致重新执行注册流程
+        return "redirect:/auth/member/to/login/page";
     }
 
     @RequestMapping("/auth/member/send/short/message")

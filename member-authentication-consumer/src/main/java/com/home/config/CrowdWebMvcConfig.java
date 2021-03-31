@@ -14,11 +14,14 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CrowdWebMvcConfig implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
         //浏览器访问的地址
-        String urlPath = "/auth/member/to/reg/page.html";
+        String regUrlPath = "/auth/member/to/reg/page";
+        String loginUrlPath = "/auth/member/to/login/page";
 
         //访问视图的名称  将来拼接前后缀
-        String viewName="member-reg";
+        String regViewName="member-reg";
+        String loginViewName="member-login";
         //添加一个view-controller
-        registry.addViewController(urlPath).setViewName(viewName);
+        registry.addViewController(regUrlPath).setViewName(regViewName);
+        registry.addViewController(loginUrlPath).setViewName(loginViewName);
     }
 }
