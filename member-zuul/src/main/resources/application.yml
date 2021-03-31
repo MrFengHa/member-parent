@@ -15,3 +15,7 @@ zuul:
 spring:
   application:
     name: zuul
+  redis:
+    host: 47.242.214.81
+  session:
+    store-type: redis
