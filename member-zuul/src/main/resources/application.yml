@@ -22,3 +22,6 @@ spring:
     host: 47.242.214.81
   session:
     store-type: redis
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

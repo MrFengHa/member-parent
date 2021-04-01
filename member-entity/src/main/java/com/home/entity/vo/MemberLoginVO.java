@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * 文件描述
  *
@@ -15,7 +17,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class MemberLoginVO {
+public class MemberLoginVO implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Integer id;
     private String username;
     private String email;
