@@ -7,10 +7,13 @@ eureka:
       defaultZone: http://localhost:1000/eureka
 zuul:
   ignored-services: "*"
+  #在Zuul先买个其他微服务重定向是爆粗原本头信息
+  sensitive-headers: "*"
   routes:
     portal:
       service-id: member-authentication-consumer
       path: /**
+
 
 spring:
   application:
