@@ -1,4 +1,4 @@
-package com.home.util;
+package com.home.constant;
 
 /**
  * 常量类

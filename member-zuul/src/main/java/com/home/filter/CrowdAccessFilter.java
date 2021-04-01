@@ -1,7 +1,7 @@
 package com.home.filter;
 
-import com.home.util.AccessPassResources;
-import com.home.util.CrowdConstant;
+import com.home.constant.AccessPassResources;
+import com.home.constant.CrowdConstant;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
