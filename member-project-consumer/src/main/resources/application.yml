@@ -1,0 +1,25 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: project-consumer
+
+  redis:
+    host: 47.242.214.81
+  session:
+    store-type: redis
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1000/eureka
+
+aliyun:
+  oss:
+    access-key-id: LTAI5tCGmAET74j6ajozzw9w
+    access-key-secret: iENDi2YdjTSTYAcxUPGhrx1P9R3jkr
+    bucket-domain: http://rootfeng.oss-cn-beijing.aliyuncs.com
+    bucket-name: rootfeng
+    end-point: http://oss-cn-beijing.aliyuncs.com
+
+

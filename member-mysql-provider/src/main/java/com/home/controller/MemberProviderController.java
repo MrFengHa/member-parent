@@ -2,7 +2,7 @@ package com.home.controller;
 
 import com.home.entity.po.MemberPO;
 import com.home.service.MemberService;
-import com.home.util.CrowdConstant;
+import com.home.constant.CrowdConstant;
 import com.home.util.ResultEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
