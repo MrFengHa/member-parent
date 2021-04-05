@@ -13,6 +13,9 @@ zuul:
     portal:
       service-id: member-authentication-consumer
       path: /**
+    project:
+      service-id: project-consumer
+        path: /project/**
 
 
 spring:
