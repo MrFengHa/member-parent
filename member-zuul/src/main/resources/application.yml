@@ -15,7 +15,7 @@ zuul:
       path: /**
     project:
       service-id: project-consumer
-        path: /project/**
+      path: /project/**
 
 
 spring:

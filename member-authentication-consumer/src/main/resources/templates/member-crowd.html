@@ -120,13 +120,7 @@
                         <li role="presentation"><a href="#attension">我关注的</a></li>
                         <li role="presentation"><a href="#add">我发起的</a></li>
                         <li class=" pull-right">
-                            <script>
-                                $(function(){
-                                    $("#launchCrowdBtn").click(function(){
-                                        window.location.href="http://localhost/project/agree/protocol/page";
-                                    })
-                                })
-                            </script>
+
                             <button type="button" id="launchCrowdBtn" class="btn btn-warning">
                                 发起众筹
                             </button>
@@ -417,6 +411,12 @@
         e.preventDefault()
         $(this).tab('show')
     })
+
+    $(function(){
+        $("#launchCrowdBtn").click(function(){
+            window.location.href="http://localhost/project/agree/protocol/page";
+        })
+    });
 </script>
 </body>
 </html>
