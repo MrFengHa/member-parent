@@ -16,5 +16,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         //View-controller是在project-consumer内部定义的，所以这里是一个不经过Zuul访问的地址，所以不加路径前面路由规则中定义的前缀/project/
         registry.addViewController("/agree/protocol/page").setViewName("project-agree");
         registry.addViewController("/launch/project/page").setViewName("project-launch");
+        registry.addViewController("/return/info/page").setViewName("project-return");
     }
 }
