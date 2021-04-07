@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,31 @@ import java.util.List;
 public class ProjectConsumerController {
     @Autowired
     private OSSProperties ossProperties;
+
+
+    /**
+     * 上传单个文件
+     * @param returnPicture
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/create/upload/return/picture.json")
+    public ResultEntity<String> uploadReturnPicture(@RequestParam("returnPicture") MultipartFile returnPicture) throws IOException {
+
+        //1.执行文件上传
+        ResultEntity<String> uploadReturnPicResultEntity = CrowdUtil.uploadFileToOss(
+                ossProperties.getEndPoint(),
+                ossProperties.getAccessKeyId(),
+                ossProperties.getAccessKeySecret(),
+                returnPicture.getInputStream(),
+                ossProperties.getBucketName(),
+                ossProperties.getBucketDomain(),
+                returnPicture.getOriginalFilename()
+        );
+
+        //2.返回上传结果
+        return uploadReturnPicResultEntity;
+    }
 
     @RequestMapping("/create/project/information")
     public String saveProjectBasicInfo(
