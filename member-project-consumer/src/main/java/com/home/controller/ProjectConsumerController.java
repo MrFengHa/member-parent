@@ -1,7 +1,10 @@
 package com.home.controller;
 
+import com.home.api.MySqlRemoteService;
 import com.home.config.OSSProperties;
 import com.home.constant.CrowdConstant;
+import com.home.entity.vo.MemberConfirmInfoVO;
+import com.home.entity.vo.MemberLoginVO;
 import com.home.entity.vo.ProjectVO;
 import com.home.entity.vo.ReturnVO;
 import com.home.util.CrowdUtil;
@@ -29,6 +32,37 @@ import java.util.List;
 public class ProjectConsumerController {
     @Autowired
     private OSSProperties ossProperties;
+    @Autowired
+    private MySqlRemoteService mySqlRemoteService;
+
+    @RequestMapping("/create/confirm")
+    public String saveConfirm(HttpSession httpSession, MemberConfirmInfoVO memberConfirmInfoVO, ModelMap modelMap){
+        //1.从session域中读取之前临时存储的ProjectVO对象
+        ProjectVO projectVO = (ProjectVO) httpSession.getAttribute(CrowdConstant.ATTR_NAME_TEMPLE_PROJECT);
+        //2.如果ProjectVO为null
+        if (projectVO==null){
+            throw new RuntimeException(CrowdConstant.MESSAGE_TEMPLE_PROJECT_MISSING);
+        }
+        //3.将确认信息数据设置到ProjectVO对象中
+        projectVO.setMemberConfirmInfoVO(memberConfirmInfoVO);
+
+        //4.从Session域读取当前用户
+        MemberLoginVO memberLoginVO = (MemberLoginVO) httpSession.getAttribute(CrowdConstant.ATTR_NAME_LOGIN_MEMBER);
+        //5.获取成员ID
+        Integer memberId = memberLoginVO.getId();
+        //6.调用远程方法保存projectVO对象
+        ResultEntity<String> saveResultEntity = mySqlRemoteService.saveProjectVORemote(projectVO,memberId);
+        //7.判断获取结果成功失败
+        if (ResultEntity.ERROR.equals(saveResultEntity.getResult()))
+        {
+            modelMap.addAttribute(CrowdConstant.ATTR_NAME_MESSAGE,saveResultEntity.getMessage());
+            return "project-confirm";
+        }
+        //8.将临时的ProjectVO对象从Session域移除
+        httpSession.removeAttribute(CrowdConstant.ATTR_NAME_TEMPLE_PROJECT);
+        //9.如果远程保存成跳转到最终完成页面
+        return "project-success";
+    }
 
     @ResponseBody
     @RequestMapping("/create/save/return.json")

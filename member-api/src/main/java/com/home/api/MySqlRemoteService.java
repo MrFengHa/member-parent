@@ -1,6 +1,7 @@
 package com.home.api;
 
 import com.home.entity.po.MemberPO;
+import com.home.entity.vo.ProjectVO;
 import com.home.util.ResultEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,4 +22,6 @@ public interface MySqlRemoteService {
     @RequestMapping("/save/member/remote")
     ResultEntity<String> saveMember(@RequestBody MemberPO memberPO);
 
+    @RequestMapping("/save/project/vo/remote")
+    ResultEntity<String> saveProjectVORemote(@RequestBody ProjectVO projectVO, Integer memberId);
 }

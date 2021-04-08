@@ -4,7 +4,9 @@ import com.home.entity.po.ProjectPO;
 import com.home.entity.po.ProjectPOExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProjectPOMapper {
     long countByExample(ProjectPOExample example);
 
