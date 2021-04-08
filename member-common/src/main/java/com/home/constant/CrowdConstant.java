@@ -19,6 +19,7 @@ public class CrowdConstant {
     public static final String MESSAGE_HEADER_HEADER_PIC_EMPTY = "头图不可以为空";
     public static final String MESSAGE_HEADER_PIC_UPLOAD_FAILED = "头图上传失败";
     public static final String MESSAGE_DETAIL_PIC_UPLOAD_FAILED = "详情图片不可为空";
+    public static final String MESSAGE_TEMPLE_PROJECT_MISSING = "临时存储的Project对象丢失";
     /**
      * 异常返回字符
      */
@@ -30,7 +31,6 @@ public class CrowdConstant {
     public static final String ATTR_NAME_TEMPLE_PROJECT = "tempProject";
 
     public static final String REDIS_CODE_PREFIX = "REDIS_CODE_PREFIX";
-
 
 
 }
